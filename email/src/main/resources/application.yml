@@ -6,8 +6,9 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    email: ## Nhập email
-    password: ## Thay bằng password từ password app từ google
-    properties:
-      mail.smtp.auth: true
-      mail.smtp.starttls.enable: true
+    email: # Nhập email đã kích hoạt 2FA
+    password: # Thay bằng password đc tạo ra từ app password của Google
+    isSSL: false
+  protocal: smtp
+
+

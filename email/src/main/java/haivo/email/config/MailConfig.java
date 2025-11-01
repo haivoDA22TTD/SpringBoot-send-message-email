@@ -2,25 +2,26 @@ package haivo.email.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-
 import java.util.Properties;
 
+@Configuration
 public class MailConfig {
-    @Value("${mailServer.host}")
+    @Value("${spring.mail.host}")
     private String host;
 
-    @Value("${mailServer.port}")
+    @Value("${spring.mail.port}")
     private int port;
 
-    @Value("${mailServer.email}")
+    @Value("${spring.mail.email}")
     private String email;
 
-    @Value("${mailServer.password}")
+    @Value("${spring.mail.password}")
     private String password;
 
-    @Value("${mailServer.isSSL}")
+    @Value("${spring.mail.isSSL}")
     private String isSSL;
 
     @Bean
@@ -29,6 +30,7 @@ public class MailConfig {
         mailSender.setHost(host);
         mailSender.setPort(port);
         mailSender.setUsername(email);
+        mailSender.setPassword(password);
         mailSender.setDefaultEncoding("UTF-8");
 
         Properties props = mailSender.getJavaMailProperties();
